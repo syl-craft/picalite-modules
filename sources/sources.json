@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "id": "magick-package",
+      "kind": "binary",
+      "file": "magick.net-q8-x64.14.17.2.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/magick.net-q8-x64/14.17.2/magick.net-q8-x64.14.17.2.nupkg",
+      "sha256": "fefe99147a5f3b664b930a484e2efe72909dcd1e4eae306829141447b0302c7a"
+    },
+    {
+      "id": "vlc-package",
+      "kind": "binary",
+      "file": "videolan.libvlc.windows.3.0.21.nupkg",
+      "url": "https://api.nuget.org/v3-flatcontainer/videolan.libvlc.windows/3.0.21/videolan.libvlc.windows.3.0.21.nupkg",
+      "sha256": "814ac28de8ab1544e98816388858fbf1feadd386928742885728959b43c1b0ab"
+    },
+    {
+      "id": "ffmpeg-package",
+      "kind": "binary",
+      "file": "ffmpeg-N-128273-g836436cfb9-win64-lgpl-shared.zip",
+      "url": "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-11-01-12-49/ffmpeg-N-128273-g836436cfb9-win64-lgpl-shared.zip",
+      "sha256": "b4d979364e10981c1b241257de4b59d53dc3c6d9831e9b949b2dd4fc4c35890e"
+    },
+    {
+      "id": "ffmpeg-source",
+      "kind": "source",
+      "file": "ffmpeg-836436cfb9.tar.gz",
+      "url": "https://github.com/FFmpeg/FFmpeg/archive/836436cfb9.tar.gz",
+      "sha256": "20068d3b9b209dd09393064950bd6645bf3a3daa66d269869dc4d090080022d3"
+    },
+    {
+      "id": "ffmpeg-build-source",
+      "kind": "source",
+      "file": "ffmpeg-builds-2026-11-01-12-49.tar.gz",
+      "url": "https://github.com/BtbN/FFmpeg-Builds/archive/refs/tags/autobuild-2026-11-01-12-49.tar.gz",
+      "sha256": "31565913de6f81cb637c7420e3f9866a0e257efd81c1600549c737a455cebcaf"
+    },
+    {
+      "id": "vlc-source",
+      "kind": "source",
+      "file": "vlc-3.0.21.tar.xz",
+      "url": "https://download.videolan.org/pub/videolan/vlc/3.0.21/vlc-3.0.21.tar.xz",
+      "sha256": "24dbbe1d7dfaeea0994d5def0bbde200177347136dbfe573f5b6a4cee25afbb0"
+    },
+    {
+      "id": "magick-native-source",
+      "kind": "source",
+      "file": "magick-native-2026.927.1314.tar.gz",
+      "url": "https://github.com/dlemstra/Magick.Native/archive/refs/tags/2026.927.1314.tar.gz",
+      "sha256": "2df46fadce7a2be2cf5a7644fd678b2c0d9e2a5c991260a495f294c9b4394035"
+    },
+    {
+      "id": "libheif-source",
+      "kind": "source",
+      "file": "libheif-1.23.5.tar.gz",
+      "url": "https://github.com/strukturag/libheif/releases/download/v1.23.5/libheif-1.23.5.tar.gz",
+      "sha256": "fd9036064c4432f0550d15072ddf34956a248279ee9aeaff0fba3fa0f77d8f1a"
+    },
+    {
+      "id": "libde265-source",
+      "kind": "source",
+      "file": "libde265-1.1.3.tar.gz",
+      "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz",
+      "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905"
+    },
+    {
+      "id": "libraw-source",
+      "kind": "source",
+      "file": "LibRaw-0.22.2.tar.gz",
+      "url": "https://www.libraw.org/data/LibRaw-0.22.2.tar.gz",
+      "sha256": "de86b035655accff8d4010f1a221fdf50d353cb7b1422ba26f14a0db92612cfa"
+    }
+  ],
+  "modules": [
+    {
+      "name": "magick",
+      "version": "14.17.2",
+      "managed": { "package": "Magick.NET-Q8-x64", "version": "14.17.2" },
+      "minApp": "0.1.0",
+      "maxApp": "0.99.0",
+      "asset": "magick-package",
+      "content": [
+        { "from": "runtimes/win-x64/native", "to": "." },
+        { "from": "Notice.txt", "to": "Notice.txt" }
+      ],
+      "licenses": ["Notice.txt"]
+    },
+    {
+      "name": "ffmpeg",
+      "version": "2026.11.1",
+      "managed": { "package": "FFMpegCore", "version": "5.5.0" },
+      "minApp": "0.1.0",
+      "maxApp": "0.99.0",
+      "asset": "ffmpeg-package",
+      "content": [
+        { "from": "ffmpeg-N-128273-g836436cfb9-win64-lgpl-shared/bin", "to": "." },
+        { "from": "ffmpeg-N-128273-g836436cfb9-win64-lgpl-shared/LICENSE.txt", "to": "LICENSE.txt" }
+      ],
+      "licenses": ["ffmpeg-N-128273-g836436cfb9-win64-lgpl-shared/LICENSE.txt"]
+    },
+    {
+      "name": "vlc",
+      "version": "3.0.21",
+      "managed": { "package": "LibVLCSharp", "version": "3.10.2" },
+      "minApp": "0.1.0",
+      "maxApp": "0.99.0",
+      "asset": "vlc-package",
+      "content": [{ "from": "build/x64", "to": "." }],
+      "exclude": [
+        {
+          "reason": "GPL : sources et dépendances x26x (VLC-AUDIT.md). Les variantes x262/x264/x265 absentes restent interdites.",
+          "paths": [
+            "plugins/access/libdtv_plugin.dll",
+            "plugins/codec/libx262_plugin.dll",
+            "plugins/codec/libx264_plugin.dll",
+            "plugins/codec/libx26410b_plugin.dll",
+            "plugins/codec/libx265_plugin.dll",
+            "plugins/lua/liblua_plugin.dll",
+            "plugins/spu/libremoteosd_plugin.dll",
+            "plugins/video_chroma/libi420_rgb_mmx_plugin.dll",
+            "plugins/video_filter/libdeinterlace_plugin.dll",
+            "plugins/video_filter/libhqdn3d_plugin.dll",
+            "plugins/visualization/libglspectrum_plugin.dll",
+            "plugins/visualization/libvisual_plugin.dll"
+          ]
+        },
+        {
+          "reason": "GPL possible : TS peut être lié à aribb24 (contrib/src/aribb24/rules.mak, REQUIRE_GPL). Hors des conteneurs de la spec, exclu par précaution.",
+          "paths": [
+            "plugins/demux/libts_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Sorties de diffusion et écriture, inutiles à la lecture locale.",
+          "paths": [
+            "plugins/access_output/libaccess_output_dummy_plugin.dll",
+            "plugins/access_output/libaccess_output_file_plugin.dll",
+            "plugins/access_output/libaccess_output_http_plugin.dll",
+            "plugins/access_output/libaccess_output_livehttp_plugin.dll",
+            "plugins/access_output/libaccess_output_rist_plugin.dll",
+            "plugins/access_output/libaccess_output_shout_plugin.dll",
+            "plugins/access_output/libaccess_output_srt_plugin.dll",
+            "plugins/access_output/libaccess_output_udp_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Flux sortants et transcodage, inutiles à la lecture locale.",
+          "paths": [
+            "plugins/stream_out/libstream_out_autodel_plugin.dll",
+            "plugins/stream_out/libstream_out_bridge_plugin.dll",
+            "plugins/stream_out/libstream_out_chromaprint_plugin.dll",
+            "plugins/stream_out/libstream_out_chromecast_plugin.dll",
+            "plugins/stream_out/libstream_out_delay_plugin.dll",
+            "plugins/stream_out/libstream_out_description_plugin.dll",
+            "plugins/stream_out/libstream_out_display_plugin.dll",
+            "plugins/stream_out/libstream_out_dummy_plugin.dll",
+            "plugins/stream_out/libstream_out_duplicate_plugin.dll",
+            "plugins/stream_out/libstream_out_es_plugin.dll",
+            "plugins/stream_out/libstream_out_gather_plugin.dll",
+            "plugins/stream_out/libstream_out_mosaic_bridge_plugin.dll",
+            "plugins/stream_out/libstream_out_record_plugin.dll",
+            "plugins/stream_out/libstream_out_setid_plugin.dll",
+            "plugins/stream_out/libstream_out_smem_plugin.dll",
+            "plugins/stream_out/libstream_out_standard_plugin.dll",
+            "plugins/stream_out/libstream_out_stats_plugin.dll",
+            "plugins/stream_out/libstream_out_transcode_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Multiplexage de sortie, inutile à la lecture locale.",
+          "paths": [
+            "plugins/mux/libmux_asf_plugin.dll",
+            "plugins/mux/libmux_avi_plugin.dll",
+            "plugins/mux/libmux_dummy_plugin.dll",
+            "plugins/mux/libmux_mp4_plugin.dll",
+            "plugins/mux/libmux_mpjpeg_plugin.dll",
+            "plugins/mux/libmux_ogg_plugin.dll",
+            "plugins/mux/libmux_ps_plugin.dll",
+            "plugins/mux/libmux_ts_plugin.dll",
+            "plugins/mux/libmux_wav_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Découverte réseau et lecteurs, inutile à la lecture directe des fichiers.",
+          "paths": [
+            "plugins/services_discovery/libmicrodns_plugin.dll",
+            "plugins/services_discovery/libupnp_plugin.dll",
+            "plugins/services_discovery/libwindrive_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Visualisations audio, inutiles à la lecture vidéo.",
+          "paths": [
+            "plugins/visualization/libgoom_plugin.dll",
+            "plugins/visualization/libprojectm_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Découpage multi-écrans, inutilisé par les rappels vidéo WPF.",
+          "paths": [
+            "plugins/video_splitter/libclone_plugin.dll",
+            "plugins/video_splitter/libpanoramix_plugin.dll",
+            "plugins/video_splitter/libwall_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Accès réseau, diffusion, capture, disques et entrées synthétiques, hors des fichiers vidéo locaux de la spec.",
+          "paths": [
+            "plugins/access/libaccess_concat_plugin.dll",
+            "plugins/access/libaccess_mms_plugin.dll",
+            "plugins/access/libaccess_srt_plugin.dll",
+            "plugins/access/libaccess_wasapi_plugin.dll",
+            "plugins/access/libcdda_plugin.dll",
+            "plugins/access/libdcp_plugin.dll",
+            "plugins/access/libftp_plugin.dll",
+            "plugins/access/libhttp_plugin.dll",
+            "plugins/access/libhttps_plugin.dll",
+            "plugins/access/libidummy_plugin.dll",
+            "plugins/access/liblibbluray_plugin.dll",
+            "plugins/access/liblive555_plugin.dll",
+            "plugins/access/libnfs_plugin.dll",
+            "plugins/access/librist_plugin.dll",
+            "plugins/access/librtp_plugin.dll",
+            "plugins/access/libsatip_plugin.dll",
+            "plugins/access/libscreen_plugin.dll",
+            "plugins/access/libsdp_plugin.dll",
+            "plugins/access/libsftp_plugin.dll",
+            "plugins/access/libshm_plugin.dll",
+            "plugins/access/libsmb_plugin.dll",
+            "plugins/access/libtcp_plugin.dll",
+            "plugins/access/libtimecode_plugin.dll",
+            "plugins/access/libudp_plugin.dll",
+            "plugins/access/libvcd_plugin.dll",
+            "plugins/access/libvdr_plugin.dll",
+            "plugins/access/libbluray-awt-j2se-1.3.2.jar",
+            "plugins/access/libbluray-j2se-1.3.2.jar"
+          ]
+        },
+        {
+          "reason": "Encodeurs seuls et paquetisation RTP sortante. Les codecs mixtes encodeur/décodeur nécessaires à la lecture sont conservés.",
+          "paths": [
+            "plugins/codec/libedummy_plugin.dll",
+            "plugins/codec/libqsv_plugin.dll",
+            "plugins/codec/librtpvideo_plugin.dll",
+            "plugins/codec/libtwolame_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Listes de lecture, navigation, diffusion adaptative et export, hors des conteneurs vidéo locaux de la spec.",
+          "paths": [
+            "plugins/demux/libadaptive_plugin.dll",
+            "plugins/demux/libdemux_chromecast_plugin.dll",
+            "plugins/demux/libdemuxdump_plugin.dll",
+            "plugins/demux/libdirectory_demux_plugin.dll",
+            "plugins/demux/libnsc_plugin.dll",
+            "plugins/demux/libplaylist_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Filtres de diffusion réseau, déchiffrement TV et enregistrement, inutiles à la lecture locale.",
+          "paths": [
+            "plugins/stream_filter/libaribcam_plugin.dll",
+            "plugins/stream_filter/libhds_plugin.dll",
+            "plugins/stream_filter/librecord_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Sorties graphiques natives et fichiers, inutilisées : PicaLite affiche les rappels vmem dans WPF.",
+          "paths": [
+            "plugins/video_output/libcaca_plugin.dll",
+            "plugins/video_output/libdirect3d11_plugin.dll",
+            "plugins/video_output/libdirect3d9_plugin.dll",
+            "plugins/video_output/libdirectdraw_plugin.dll",
+            "plugins/video_output/libdrawable_plugin.dll",
+            "plugins/video_output/libflaschen_plugin.dll",
+            "plugins/video_output/libgl_plugin.dll",
+            "plugins/video_output/libglinterop_dxva2_plugin.dll",
+            "plugins/video_output/libglwin32_plugin.dll",
+            "plugins/video_output/libwgl_plugin.dll",
+            "plugins/video_output/libwingdi_plugin.dll",
+            "plugins/video_output/libwinhibit_plugin.dll",
+            "plugins/video_output/libyuv_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Effets vidéo et incrustations facultatives, inutilisés. Composition, canevas, recadrage, échelle et orientation conservés.",
+          "paths": [
+            "plugins/spu/libaudiobargraph_v_plugin.dll",
+            "plugins/spu/liblogo_plugin.dll",
+            "plugins/spu/libmarq_plugin.dll",
+            "plugins/spu/libmosaic_plugin.dll",
+            "plugins/spu/librss_plugin.dll",
+            "plugins/spu/libsubsdelay_plugin.dll",
+            "plugins/video_filter/libadjust_plugin.dll",
+            "plugins/video_filter/libalphamask_plugin.dll",
+            "plugins/video_filter/libanaglyph_plugin.dll",
+            "plugins/video_filter/libantiflicker_plugin.dll",
+            "plugins/video_filter/libball_plugin.dll",
+            "plugins/video_filter/libblendbench_plugin.dll",
+            "plugins/video_filter/libbluescreen_plugin.dll",
+            "plugins/video_filter/libcolorthres_plugin.dll",
+            "plugins/video_filter/libedgedetection_plugin.dll",
+            "plugins/video_filter/liberase_plugin.dll",
+            "plugins/video_filter/libextract_plugin.dll",
+            "plugins/video_filter/libfps_plugin.dll",
+            "plugins/video_filter/libfreeze_plugin.dll",
+            "plugins/video_filter/libgaussianblur_plugin.dll",
+            "plugins/video_filter/libgradfun_plugin.dll",
+            "plugins/video_filter/libgradient_plugin.dll",
+            "plugins/video_filter/libgrain_plugin.dll",
+            "plugins/video_filter/libinvert_plugin.dll",
+            "plugins/video_filter/libmagnify_plugin.dll",
+            "plugins/video_filter/libmirror_plugin.dll",
+            "plugins/video_filter/libmotionblur_plugin.dll",
+            "plugins/video_filter/libmotiondetect_plugin.dll",
+            "plugins/video_filter/liboldmovie_plugin.dll",
+            "plugins/video_filter/libposterize_plugin.dll",
+            "plugins/video_filter/libpsychedelic_plugin.dll",
+            "plugins/video_filter/libpuzzle_plugin.dll",
+            "plugins/video_filter/libripple_plugin.dll",
+            "plugins/video_filter/libscene_plugin.dll",
+            "plugins/video_filter/libsepia_plugin.dll",
+            "plugins/video_filter/libsharpen_plugin.dll",
+            "plugins/video_filter/libvhs_plugin.dll",
+            "plugins/video_filter/libwave_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Effets audio facultatifs, inutilisés ; conversion, mixage, spatialisation, tempo et rééchantillonnage conservés.",
+          "paths": [
+            "plugins/audio_filter/libaudiobargraph_a_plugin.dll",
+            "plugins/audio_filter/libchorus_flanger_plugin.dll",
+            "plugins/audio_filter/libcompressor_plugin.dll",
+            "plugins/audio_filter/libequalizer_plugin.dll",
+            "plugins/audio_filter/libgain_plugin.dll",
+            "plugins/audio_filter/libkaraoke_plugin.dll",
+            "plugins/audio_filter/libnormvol_plugin.dll",
+            "plugins/audio_filter/libparam_eq_plugin.dll",
+            "plugins/audio_filter/libremap_plugin.dll",
+            "plugins/audio_filter/libscaletempo_pitch_plugin.dll",
+            "plugins/audio_filter/libspatializer_plugin.dll",
+            "plugins/audio_filter/libstereo_widen_plugin.dll"
+          ]
+        },
+        {
+          "reason": "Sortie audio vers fichier et gestionnaires de services en ligne, inutiles à la lecture locale.",
+          "paths": [
+            "plugins/audio_output/libafile_plugin.dll",
+            "plugins/keystore/libfile_keystore_plugin.dll",
+            "plugins/keystore/libmemory_keystore_plugin.dll",
+            "plugins/misc/libaddonsfsstorage_plugin.dll",
+            "plugins/misc/libaddonsvorepository_plugin.dll",
+            "plugins/misc/libfingerprinter_plugin.dll",
+            "plugins/misc/libgnutls_plugin.dll"
+          ]
+        },
+        {
+          "reason": "SDK de développement et scripts Lua (interfaces HTTP/telnet incluses), inutiles au moteur PicaLite.",
+          "paths": [
+            "include",
+            "lua",
+            "libvlc.lib",
+            "libvlccore.lib",
+            "vlc.lib",
+            "vlccore.lib"
+          ]
+        }
+      ],
+      "licenses": [],
+      "sourceLicenses": [
+        { "asset": "vlc-source", "from": "vlc-3.0.21/COPYING.LIB", "to": "COPYING.LIB" }
+      ]
+    }
+  ]
+}
